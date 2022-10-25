@@ -6,23 +6,23 @@ import tax.type.IncomeTaxType;
 import tax.type.TaxType;
 
 public class BillTest {
-    Bill sut;
-    TaxService taxService = new TaxService();
+    private Bill sut;
+    private TaxService taxService = new TaxService();
 
     @AfterEach
-    public void after(){
+    public void after() {
         sut = null;
     }
 
     @Test
-    public void BillWithValues(){
+    public void billWithValues() {
         double expectedAmount = 1_000;
         sut = new Bill(1_000, new TaxType(), taxService);
         Assertions.assertEquals(expectedAmount, sut.getAmount());
     }
 
     @Test
-    public void BillWithTaxType(){
+    public void billWithTaxType() {
         double expected = 0;
         sut = new Bill(1000, new TaxType(), taxService);
         double result = sut.payTaxes();
@@ -30,7 +30,7 @@ public class BillTest {
     }
 
     @Test
-    public void BillWithIncomeTaxType(){
+    public void billWithIncomeTaxType() {
         double expected = 130;
         sut = new Bill(1000, new IncomeTaxType(), taxService);
         double result = sut.payTaxes();

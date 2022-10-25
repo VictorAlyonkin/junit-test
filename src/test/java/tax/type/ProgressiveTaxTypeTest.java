@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProgressiveTaxTypeTest {
-    ProgressiveTaxType sut;
+    private ProgressiveTaxType sut;
 
     @BeforeEach
     public void beforeInit() {
@@ -25,6 +25,7 @@ public class ProgressiveTaxTypeTest {
         double asd = sut.calculateTaxFor(100);
         assertEquals(expected, asd);
     }
+
     @Test
     public void calculateTaxForMore100_000() {
         double expected = 300_000;
